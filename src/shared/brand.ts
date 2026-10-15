@@ -5,8 +5,7 @@ export const BRAND = {
   developer: 'Mamoun Mardini, PhD',
   byline: 'Built by Mamoun Mardini, PhD, independent researcher',
   repoUrl: 'https://github.com/malmardi/nope',
-  // TODO: replace with the real tip page before release.
-  tipUrl: 'https://buymeacoffee.com/YOUR-HANDLE',
+  tipUrl: 'https://www.buymeacoffee.com/malmardi',
 } as const;
 
 export const PRIVACY_URL = `${BRAND.repoUrl}/blob/main/PRIVACY.md`;
