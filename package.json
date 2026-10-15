@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check-sites": "node scripts/check-sites.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
     "icons": "node scripts/make-icons.ts"
   },
   "devDependencies": {

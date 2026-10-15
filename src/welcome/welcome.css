@@ -16,7 +16,7 @@ body {
   text-align: center;
 }
 
-.mark-large {
+.mark.mark-large {
   width: 88px;
   height: 88px;
   border-radius: 26px;

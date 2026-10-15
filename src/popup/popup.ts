@@ -53,13 +53,17 @@ async function main(): Promise<void> {
   $('pro-allow').addEventListener('click', () => {
     chrome.tabs.create({ url: chrome.runtime.getURL('options/options.html#pro') });
   });
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  // popup.html?tab=<id> describes a given tab; scripts/screenshots.mjs opens the popup this way.
+  const tabParam = Number(new URLSearchParams(location.search).get('tab'));
+  const [tab] = tabParam
+    ? [await chrome.tabs.get(tabParam)]
+    : await chrome.tabs.query({ active: true, currentWindow: true });
   const url = tab?.url ? new URL(tab.url) : undefined;
   isWebPage = url?.protocol === 'http:' || url?.protocol === 'https:';
   const hostname = isWebPage ? url!.hostname : '';
   const toggle = $<HTMLInputElement>('active');
 
-  $('host').textContent = isWebPage ? hostname : 'Browser page';
+  $('host').textContent = isWebPage ? hostname.replace(/^www\./, '') : 'Browser page';
 
   const report = $<HTMLAnchorElement>('report');
   report.hidden = !isWebPage;

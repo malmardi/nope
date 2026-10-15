@@ -6,6 +6,14 @@ A browser extension that clicks "reject all" on cookie banners for you, and hide
 - **No data selling, ever.** Nothing you browse leaves your device. No analytics or telemetry.
 - **Quick fixes.** Report a site that slips through, and the fix ships through a rules update.
 
+<p>
+  <img src="docs/screenshots/popup-rejected-light.png" width="240" alt="Popup after rejecting a banner, light mode">
+  <img src="docs/screenshots/popup-missed-dark.png" width="240" alt="Popup after missing a banner, dark mode">
+  <img src="docs/screenshots/popup-paused-light.png" width="240" alt="Popup with Nope paused on this site">
+</p>
+
+More in [docs/screenshots](docs/screenshots): every popup state, the onboarding page and the settings page, in light and dark mode. Regenerate them with `npm run build && npm run screenshots`.
+
 ## Build
 
 Requires Node.js 22 or later.
