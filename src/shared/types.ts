@@ -1,4 +1,5 @@
 import type { Config, RuleBundle } from '@duckduckgo/autoconsent';
+import type { RulesFile } from '../rules/rules-file';
 
 export type Status ='rejected' | 'hidden' | 'none' | 'missed' | 'paused';
 
@@ -65,6 +66,19 @@ export interface Stats {
 export const KEY_STATS = 'stats';
 export const KEY_PAUSED = 'pausedSites';
 export const KEY_ONBOARDED = 'onboarded';
+export const KEY_RULES = 'rules';
+export const KEY_RULES_CHECK = 'rulesCheck';
+
+/** A downloaded rules file, kept until a newer revision arrives. */
+export interface StoredRules {
+  file: RulesFile;
+  fetchedAt: number;
+}
+
+/** The outcome of the last daily rules download, shown on the settings page. */
+export type RulesCheck =
+  | { at: number; ok: true; revision: number }
+  | { at: number; ok: false; error: string };
 
 // chrome.storage.session key holding a tab's status for the current page
 export const tabStatusKey = (tabId: number) => `tabStatus:${tabId}`;

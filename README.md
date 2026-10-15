@@ -36,7 +36,19 @@ Nope uses DuckDuckGo's [autoconsent](https://github.com/duckduckgo/autoconsent) 
 
 On top of that, every click goes through Nope's own guard ([src/content/safety.ts](src/content/safety.ts)). It refuses any button labelled to accept ("Accept all", "Allow all", "OK", "Stay opted in", and the same in German, French, Spanish, Italian and Dutch) and any link that would leave the page. If the guard blocks a click, the site is reported as "Missed one" so it can be fixed.
 
-Nope's own extra rules go in `rules/rules.json`, in autoconsent's rule format.
+## Fixing a site without a store release
+
+Nope's own rules live in [rules/rules.json](rules/rules.json). Once a day, the extension downloads that file from this repository's `main` branch: a plain request with no cookies, identifiers or query string. A downloaded file is used only if it passes a strict format check and has a higher `revision` than the copy the extension already has. Otherwise the extension keeps what it has.
+
+To ship a fix:
+
+1. Add a rule to `autoconsent`, in [autoconsent's rule format](https://github.com/duckduckgo/autoconsent/blob/main/docs/rule-syntax.md). To switch off an autoconsent rule that misbehaves, add its name to `disabledCmps`.
+2. Increase `revision` by one.
+3. Run `npm test`, which checks the file, then commit and push to `main`.
+
+Users get the fix within a day. To test straight away, run `nopeDebug.refreshRules()` in the extension's service worker console. The settings page shows the rules revision in use and when it was last checked.
+
+Rules are data only: they can name page elements to click or hide, and the names of snippets already bundled with the extension, but never code. Every click still goes through the never-accept guard.
 
 ## Load it in Chrome
 
@@ -59,6 +71,7 @@ src/content/content.ts   runs on every page and frame, reports a status
 src/content/engine.ts    runs autoconsent and turns its progress into a status
 src/content/safety.ts    never-accept and never-navigate click guard
 src/autoconsent-setup.ts autoconsent settings and per-frame rule selection
+src/rules/               rules file format check and the daily refresh
 tests/fixtures/          banner markup the guard is tested against
 src/popup/ welcome/ options/
 src/shared/brand.ts      product name, colors and URLs in one place

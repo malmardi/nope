@@ -1,7 +1,7 @@
 // Rules and settings handed to autoconsent in each frame. Background worker only.
 import { filterCompactRules, type Config, type IndexedCMPRuleset, type RuleBundle } from '@duckduckgo/autoconsent';
 import compactRules from '@duckduckgo/autoconsent/rules/compact-rules.json';
-import nopeRules from '../rules/rules.json';
+import type { RulesFile } from './rules/rules-file';
 
 export const AUTOCONSENT_CONFIG: Partial<Config> = {
   enabled: true,
@@ -33,9 +33,14 @@ export const AUTOCONSENT_CONFIG: Partial<Config> = {
 };
 
 /** The rules that can apply to one frame, so each frame receives only a small slice. */
-export function rulesFor(url: string, mainFrame: boolean): RuleBundle {
+export function rulesFor(url: string, mainFrame: boolean, nopeRules: RulesFile): RuleBundle {
   return {
-    autoconsent: nopeRules.autoconsent as RuleBundle['autoconsent'],
+    autoconsent: nopeRules.autoconsent,
     compact: filterCompactRules(compactRules as unknown as IndexedCMPRuleset, { url, mainFrame }),
   };
+}
+
+/** autoconsent settings, with any rules that Nope's rules file switches off. */
+export function configFor(nopeRules: RulesFile): Partial<Config> {
+  return { ...AUTOCONSENT_CONFIG, disabledCmps: [...nopeRules.disabledCmps] };
 }

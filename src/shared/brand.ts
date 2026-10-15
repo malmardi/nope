@@ -10,6 +10,8 @@ export const BRAND = {
 } as const;
 
 export const PRIVACY_URL = `${BRAND.repoUrl}/blob/main/PRIVACY.md`;
+// The only address the extension contacts on its own, once a day.
+export const RULES_URL = `${BRAND.repoUrl.replace('https://github.com/', 'https://raw.githubusercontent.com/')}/main/rules/rules.json`;
 
 export const COLORS = {
   accent: '#1F7A4D',

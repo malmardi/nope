@@ -1,5 +1,6 @@
 import { evalSnippets } from '@duckduckgo/autoconsent';
-import { AUTOCONSENT_CONFIG, rulesFor } from './autoconsent-setup';
+import { configFor, rulesFor } from './autoconsent-setup';
+import { activeRules, refreshRules } from './rules/store';
 import { BRAND } from './shared/brand';
 import {
   KEY_ONBOARDED,
@@ -91,8 +92,18 @@ async function handleInit(sender: chrome.runtime.MessageSender): Promise<InitRes
   if (paused.includes(hostname)) {
     return { paused: true, rules: { autoconsent: [] }, config: { enabled: false } };
   }
-  return { paused: false, rules: rulesFor(frameUrl, isTopFrame), config: AUTOCONSENT_CONFIG };
+  const rules = await activeRules();
+  return { paused: false, rules: rulesFor(frameUrl, isTopFrame, rules), config: configFor(rules) };
 }
+
+// Daily rules refresh. The alarm survives browser restarts, but is re-created here if it is ever missing.
+const RULES_ALARM = 'rules-refresh';
+chrome.alarms.get(RULES_ALARM).then((alarm) => {
+  if (!alarm) chrome.alarms.create(RULES_ALARM, { delayInMinutes: 1, periodInMinutes: 24 * 60 });
+});
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === RULES_ALARM) void refreshRules();
+});
 
 // Runs one of autoconsent's bundled snippets in the page's own JavaScript world. Snippets are
 // fixed functions shipped inside the extension, never code received from elsewhere.
@@ -142,8 +153,10 @@ chrome.tabs.onRemoved.addListener((tabId) => {
 // Development helper: from the service worker console, run
 //   nopeDebug.setStatus('hidden')
 // to preview an icon state on the active tab.
+// and nopeDebug.refreshRules() to download the rules now instead of waiting for the daily alarm.
 Object.assign(globalThis, {
   nopeDebug: {
+    refreshRules: () => refreshRules(),
     async setStatus(status: Status) {
       const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
       if (tab?.id === undefined) return;

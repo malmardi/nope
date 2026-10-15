@@ -84,6 +84,12 @@ h2 {
   border-color: var(--accent);
 }
 
+.meta-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .meta {
   display: flex;
   align-items: center;

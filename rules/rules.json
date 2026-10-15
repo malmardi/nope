@@ -1,4 +1,6 @@
 {
-  "version": 1,
-  "autoconsent": []
+  "format": 1,
+  "revision": 1,
+  "autoconsent": [],
+  "disabledCmps": []
 }
