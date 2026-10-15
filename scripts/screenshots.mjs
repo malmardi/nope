@@ -37,6 +37,7 @@ async function setState(status) {
       await chrome.storage.local.set({
         stats: { rejected: 1284, hidden: 37, firstInstall: Date.now() },
         pausedSites: status === 'paused' ? [host] : [],
+        rulesCheck: { at: Date.now(), ok: true, revision: 1 },
       });
       await chrome.storage.session.set({ [`tabStatus:${tabId}`]: status });
     },

@@ -2,6 +2,8 @@
 
 export const BRAND = {
   name: 'Nope',
+  // Full name on the Chrome Web Store and in chrome://extensions.
+  storeName: 'Nope: Cookie Banner Rejecter',
   developer: 'Mamoun Mardini, PhD',
   byline: 'Built by Mamoun Mardini, PhD, independent researcher',
   repoUrl: 'https://github.com/malmardi/nope',

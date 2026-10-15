@@ -76,8 +76,18 @@ tests/fixtures/          banner markup the guard is tested against
 src/popup/ welcome/ options/
 src/shared/brand.ts      product name, colors and URLs in one place
 rules/rules.json         consent platform rules (data only, never code)
-icons/                   generated toolbar and store icons
+icons/                   generated toolbar icons
+store/                   store listing text and images
+PRIVACY.md               the privacy promise, linked from the extension and the store
 ```
+
+## Releasing
+
+1. Increase `version` in `package.json` (the manifest takes its version from there).
+2. `npm run package` builds, tests and writes `release/nope-<version>.zip`.
+3. Upload the zip in the Chrome Web Store and Edge Add-ons dashboards. Listing text, permission justifications and images are in [store/](store/LISTING.md).
+
+To refresh the images after a design change: `npm run build && npm run screenshots && npm run store-images`.
 
 ## License
 

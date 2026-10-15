@@ -23,8 +23,10 @@ function extensionFiles(): Plugin {
     generateBundle() {
       const pkg = JSON.parse(readFileSync(resolve(projectDir, 'package.json'), 'utf8'));
       const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
-      manifest.name = BRAND.name;
+      manifest.name = BRAND.storeName;
+      manifest.short_name = BRAND.name;
       manifest.action.default_title = BRAND.name;
+      manifest.homepage_url = BRAND.repoUrl;
       manifest.version = pkg.version;
       this.emitFile({ type: 'asset', fileName: 'manifest.json', source: JSON.stringify(manifest, null, 2) });
       this.emitFile({ type: 'asset', fileName: 'rules/rules.json', source: readFileSync(rulesPath, 'utf8') });
