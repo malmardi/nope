@@ -1,0 +1,16 @@
+<!-- Cookiebot dialog, simplified. "Allow selection" saves the current choices; "Allow all" accepts. -->
+<div id="CybotCookiebotDialog" role="dialog" aria-label="Cookiebot">
+  <h2 id="CybotCookiebotDialogBodyContentTitle">This website uses cookies</h2>
+  <div id="CybotCookiebotDialogBodyLevelWrapper">
+    <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonPreferences" checked data-expect="safe">
+    <label for="CybotCookiebotDialogBodyLevelButtonPreferences">Preferences</label>
+    <input type="checkbox" id="CybotCookiebotDialogBodyLevelButtonStatistics" checked data-expect="safe">
+    <label for="CybotCookiebotDialogBodyLevelButtonStatistics">Statistics</label>
+  </div>
+  <div id="CybotCookiebotDialogFooter">
+    <button id="CybotCookiebotDialogBodyButtonDecline" data-expect="safe">Deny</button>
+    <button id="CybotCookiebotDialogBodyLevelButtonCustomize" data-expect="safe">Customize</button>
+    <button id="CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection" data-expect="safe">Allow selection</button>
+    <button id="CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll" data-expect="accept">Allow all</button>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<!-- Google's own consent screen and Funding Choices (IAB) dialog, simplified. -->
+<div role="dialog" aria-label="Before you continue to Google">
+  <button aria-label="Reject all" data-expect="safe"><span>Reject all</span></button>
+  <button aria-label="Accept all" data-expect="accept"><span>Accept all</span></button>
+  <a href="https://consent.google.com/dl?continue=https://www.google.com/" data-expect="navigates">More options</a>
+</div>
+<div class="fc-consent-root" role="dialog" aria-label="Funding Choices">
+  <button class="fc-button fc-cta-do-not-consent" data-expect="safe"><p class="fc-button-label">Do not consent</p></button>
+  <button class="fc-button fc-cta-manage-options" data-expect="safe"><p class="fc-button-label">Manage options</p></button>
+  <button class="fc-button fc-cta-consent" data-expect="accept"><p class="fc-button-label">Consent</p></button>
+</div>

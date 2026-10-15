@@ -1,0 +1,27 @@
+<!-- OneTrust banner as seen on onetrust.com (Oct 2026), simplified. -->
+<div id="onetrust-consent-sdk">
+  <div id="onetrust-banner-sdk" class="otFlat" role="region" aria-label="Cookie banner">
+    <div id="onetrust-policy">
+      <p id="onetrust-policy-text">We use cookies to personalise content and analyse our traffic.
+        <a href="https://www.onetrust.com/privacy-notice/" class="ot-cookie-policy-link" data-expect="navigates">Privacy Notice</a></p>
+    </div>
+    <div id="onetrust-button-group">
+      <button id="onetrust-pc-btn-handler" data-expect="safe">Customize settings</button>
+      <button id="onetrust-reject-all-handler" data-expect="safe">Essential only</button>
+      <button id="onetrust-accept-btn-handler" data-expect="accept">Stay opted in</button>
+    </div>
+  </div>
+  <div id="onetrust-pc-sdk" class="otPcCenter" role="dialog" aria-label="Privacy Preference Center">
+    <button id="close-pc-btn-handler" class="ot-close-icon" aria-label="Close" data-expect="safe"></button>
+    <button id="accept-recommended-btn-handler" data-expect="accept">Allow All</button>
+    <div class="ot-cat-item">
+      <h4>Performance Cookies</h4>
+      <input type="checkbox" id="ot-group-id-C0002" class="category-switch-handler" checked data-expect="safe">
+      <label for="ot-group-id-C0002">Performance Cookies</label>
+    </div>
+    <div class="ot-pc-footer">
+      <button class="ot-pc-refuse-all-handler" data-expect="safe">Reject All</button>
+      <button class="save-preference-btn-handler onetrust-close-btn-handler" data-expect="safe">Confirm My Choices</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<!-- Generic preferences panel: Save sits beside a highlighted "Accept all", plus a legitimate interest tab. -->
+<div class="cookie-preferences" role="dialog" aria-label="Cookie preferences">
+  <div role="tablist">
+    <button role="tab" data-expect="safe">Purposes</button>
+    <button role="tab" data-expect="safe">Legitimate interest</button>
+  </div>
+  <div class="purposes">
+    <div class="purpose">
+      <span>Strictly necessary</span>
+      <button role="switch" aria-checked="true" aria-disabled="true" data-expect="safe"></button>
+    </div>
+    <div class="purpose">
+      <span>Personalised advertising</span>
+      <button role="switch" aria-checked="true" aria-label="Personalised advertising" data-expect="safe"></button>
+    </div>
+    <div class="purpose">
+      <span>Measure content performance</span>
+      <div role="checkbox" aria-checked="true" tabindex="0" data-expect="safe"></div>
+    </div>
+  </div>
+  <div class="legitimate-interest">
+    <button data-expect="safe">Object to all</button>
+    <button aria-pressed="true" role="switch" data-expect="safe">Object</button>
+  </div>
+  <div class="actions">
+    <button data-expect="safe">Save my choices</button>
+    <button class="primary highlighted" data-expect="accept">Accept all</button>
+    <button data-expect="safe">Confirm my choices</button>
+    <button data-expect="accept">Select all</button>
+    <button data-expect="safe">Accept selected</button>
+    <button data-expect="safe">Accept only necessary cookies</button>
+    <button data-expect="accept">OK</button>
+    <button data-expect="accept">Got it!</button>
+    <button data-expect="accept">I agree</button>
+    <input type="button" value="Allow cookies" data-expect="accept">
+    <input type="submit" value="Save preferences" data-expect="safe">
+    <a href="/cookie-policy" data-expect="navigates">Cookie policy</a>
+    <a href="#reject" role="button" data-expect="safe">Reject</a>
+    <a href="https://partner.example/privacy" target="_blank" data-expect="navigates">Partner list</a>
+  </div>
+</div>

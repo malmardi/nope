@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nope settings</title>
+    <script type="module" src="./options.ts"></script>
+  </head>
+  <body>
+    <main class="settings">
+      <header class="page-head">
+        <span class="mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><path d="M6.5 17.5l11-11"></path></svg>
+        </span>
+        <h1><span data-brand-name>Nope</span> settings</h1>
+      </header>
+
+      <section id="pro" class="card" aria-labelledby="pro-title">
+        <div class="card-head">
+          <h2 id="pro-title">Always allow these sites</h2>
+          <span class="pro-tag">PRO</span>
+        </div>
+        <p>Let banners through on sites you trust, so you can choose for yourself there. Coming with Pro.</p>
+        <div class="locked">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+          <span>No allowed sites. Pro is not available yet.</span>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="privacy-title">
+        <h2 id="privacy-title">Our privacy promise</h2>
+        <ul class="plain-list">
+          <li>Nothing you browse leaves your device.</li>
+          <li>No analytics, no tracking, no data sold, ever.</li>
+          <li>The only automatic request is a daily download of the public rules file.</li>
+          <li>Reports are sent only when you click Report, and you see exactly what is sent first.</li>
+        </ul>
+        <a id="privacy" href="#" target="_blank" rel="noopener">Read the full privacy promise</a>
+      </section>
+
+      <section class="card" aria-labelledby="support-title">
+        <h2 id="support-title">Support <span data-brand-name>Nope</span></h2>
+        <p><span data-brand-name>Nope</span> is free and built by one independent researcher. A tip helps keep the rules up to date.</p>
+        <a id="tip" href="#" target="_blank" rel="noopener">Buy me a coffee</a>
+      </section>
+
+      <footer class="meta">
+        <span id="version"></span>
+        <a id="source" href="#" target="_blank" rel="noopener">Source code</a>
+      </footer>
+    </main>
+  </body>
+</html>

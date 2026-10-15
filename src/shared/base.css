@@ -1,0 +1,163 @@
+/* Bundled locally: no request to Google Fonts, to keep the no-network promise. */
+@import '@fontsource-variable/manrope';
+
+:root {
+  color-scheme: light dark;
+  --font: 'Manrope Variable', Manrope, system-ui, sans-serif;
+
+  --bg: #ffffff;
+  --ink: #16201b;
+  --ink-soft: #3e4a44;
+  --secondary: #5b6761;
+  --icon: #4a5650;
+  --surface: #f4f7f5;
+  --border: #e8ece9;
+  --border-dashed: #d3dad6;
+
+  --accent: #1f7a4d;
+  --accent-hover: #186540;
+  --on-accent: #ffffff;
+  --link: #1f6b45;
+  --link-hover: #134a2f;
+
+  --pill-rejected-bg: #ddf0e4;
+  --pill-rejected-fg: #1f6b45;
+  --pill-hidden-bg: #e2e9f8;
+  --pill-hidden-fg: #1d469f;
+  --pill-none-bg: #edf0ee;
+  --pill-none-fg: #4a5650;
+  --pill-missed-bg: #fdeadb;
+  --pill-missed-fg: #9a3412;
+  --pill-paused-bg: #edf0ee;
+  --pill-paused-fg: #4a5650;
+
+  --pro-bg: #16201b;
+  --pro-fg: #ffffff;
+  --focus: #2457c5;
+
+  --radius-card: 14px;
+  --radius-button: 10px;
+  --radius-pill: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111714;
+    --ink: #e6ede9;
+    --ink-soft: #c4cec9;
+    --secondary: #9ba8a1;
+    --icon: #b4bfb9;
+    --surface: #1a221e;
+    --border: #28322d;
+    --border-dashed: #3a4741;
+
+    --accent-hover: #24905a;
+    --link: #74cc9b;
+    --link-hover: #9adcb6;
+
+    --pill-rejected-bg: #183a28;
+    --pill-rejected-fg: #8fdab0;
+    --pill-hidden-bg: #1b2a4a;
+    --pill-hidden-fg: #aac2f5;
+    --pill-none-bg: #232d29;
+    --pill-none-fg: #b4bfb9;
+    --pill-missed-bg: #3d2215;
+    --pill-missed-fg: #f6b48c;
+    --pill-paused-bg: #232d29;
+    --pill-paused-fg: #b4bfb9;
+
+    --pro-bg: #e6ede9;
+    --pro-fg: #111714;
+    --focus: #8fb1ff;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--link);
+  font-weight: 600;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.pro-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--pro-bg);
+  color: var(--pro-fg);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.button:hover {
+  background: var(--accent-hover);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
