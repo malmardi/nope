@@ -8,7 +8,7 @@ Copy-paste text for the Chrome Web Store developer dashboard (and Microsoft Edge
 
 **Summary** (comes from the manifest): Always rejects cookie banners, never accepts. Open source. Nothing you browse leaves your device.
 
-**Description:**
+**Description** (don't list consent-tool or company names: the store rejected version 1.0.0 for "keyword spam" when it named eight of them):
 
 ```
 Nope clicks "Reject all" on cookie banners for you, on every site, automatically. No account, no settings, nothing to set up.
@@ -19,7 +19,7 @@ ALWAYS REJECTS, NEVER ACCEPTS
 • A built-in safety check blocks any click on "Accept", "Allow all", "OK" or similar, so Nope can never agree to cookies on your behalf.
 
 WORKS ON THE SITES YOU USE
-• Handles the major consent tools, including OneTrust, Cookiebot, Didomi, Quantcast, TrustArc, Sourcepoint, Usercentrics and Google's consent screens, plus about 1,000 site-specific rules.
+• Handles the most widely used consent tools, plus about 1,000 site-specific rules.
 • For sites without a rule, Nope looks for a reject button itself.
 
 QUICK FIXES
